@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Navigation Buttons -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btnMessage"
+            android:layout_weight="1"
+            android:text="Message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btnManage"
+            android:layout_weight="1"
+            android:text="Manage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btnServer"
+            android:layout_weight="1"
+            android:text="Server"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!-- Message Layout -->
+    <LinearLayout
+        android:id="@+id/messageLayout"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <!-- FrameLayout for categories/users -->
+        <FrameLayout
+            android:id="@+id/tree_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <EditText
+                    android:id="@+id/editMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Message" />
+
+                <Button
+                    android:id="@+id/btnSendMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Send" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <!-- Manage Layout -->
+    <ScrollView
+        android:id="@+id/manageLayout"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Add User by Roll No -->
+            <EditText
+                android:id="@+id/editRollNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Roll Number" />
+            <RadioGroup
+                android:id="@+id/roleSelectorManage"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/radioUser"
+                    android:text="User"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/radioCoAdmin"
+                    android:text="Co-Admin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+            <Button
+                android:id="@+id/btnAddUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add User" />
+
+            <!-- Create Category/Subcategory -->
+            <EditText
+                android:id="@+id/editCategoryPath"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Category/Subcategory Path" />
+            <Button
+                android:id="@+id/btnCreateCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create Category/Subcategory" />
+
+            <!-- Spinner Selection -->
+            <Spinner
+                android:id="@+id/spinnerUsers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <Spinner
+                android:id="@+id/spinnerCategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btnAssignUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Assign User to Category" />
+
+            <!-- Display Area -->
+            <LinearLayout
+                android:id="@+id/categoryUserContainer"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Server Layout -->
+    <ScrollView
+        android:id="@+id/serverLayout"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Full Name" />
+            <EditText
+                android:id="@+id/editRollNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Roll Number" />
+            <EditText
+                android:id="@+id/editDOB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Date of Birth (dd-mm-yyyy)" />
+            <EditText
+                android:id="@+id/editDomain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email Domain (e.g. example.com)" />
+            <RadioGroup
+                android:id="@+id/roleSelectorServer"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/radioServerUser"
+                    android:text="User"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/radioServerCoAdmin"
+                    android:text="Co-Admin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+            <Button
+                android:id="@+id/btnCreateAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create Account" />
+            <!-- CSV Upload Section -->
+            <Button
+                android:id="@+id/btnChooseCsv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose CSV File" />
+
+            <TextView
+                android:id="@+id/textCsvPreview"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="CSV preview will appear here"
+                android:scrollbars="vertical"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btnUploadCsv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Upload CSV Users" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
